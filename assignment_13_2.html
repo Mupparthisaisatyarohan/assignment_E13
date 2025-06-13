@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+    <link rel="stylesheet" href="assignment_13_2.css"/>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input id="input" placeholder="Enter a new task" />
+    <button id="add">add</button>
+    <ul id="list" class="list"></ul>
+</body>
+<script>
+    let inputEl = document.getElementById("input");
+    let addEl = document.getElementById("add");
+    let listEl = document.getElementById("list");
+    let num = 0;
+    let array = [];
+    let obj = {
+        buttonId: "button1",
+        containerId: "todo1"
+    }
+
+    function createAndAddlist(element) {
+        let containerEl = document.createElement("div");
+        containerEl.classList.add("container");
+        let paraEl = document.createElement("p");
+        paraEl.textContent = element;
+        containerEl.appendChild(paraEl);
+        let buttonEl = document.createElement("button");
+        buttonEl.textContent = "Delete";
+        buttonEl.classList.add("button");
+        containerEl.appendChild(buttonEl);
+        listEl.appendChild(containerEl);
+        num = num + 1;
+        let reqId = "todo" + num;
+        obj = {
+            buttonId: "button" + num,
+            containerId: "todo" + num
+        };
+        containerEl.id = obj.containerId;
+        buttonEl.id = obj.buttonId;
+        array.push(obj);
+        buttonEl.onclick = function() {
+            deleteContainer(reqId);
+        }
+    }
+
+    addEl.onclick = function() {
+        let inputEl = document.getElementById("input");
+        createAndAddlist(inputEl.value);
+        inputEl.value = "";
+    }
+
+    function deleteContainer(todoId) {
+        let container = document.getElementById(todoId);
+        listEl.removeChild(container);
+    }
+</script>
+</html>

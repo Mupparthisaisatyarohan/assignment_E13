@@ -1,0 +1,39 @@
+.heading {
+    color: aqua;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.para {
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+.start {
+    background-color: green;
+}
+
+.stop {
+    background-color: red;
+}
+
+.reset {
+    background-color: orange;
+}
+
+button {
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+}
+
+.bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: grey;
+}
